@@ -33,4 +33,22 @@ class Stack {
     this.length++;
     return this;
   }
+
+  // much like shift of LL
+  pop() {
+    if (this.length === 0) return;
+
+    let temp = this.top;
+    this.top = this.top.next;
+    temp.next = null;
+
+    this.length--;
+    return temp;
+  }
 }
+
+const myStack = new Stack(4);
+myStack.push(3);
+myStack.push(2);
+myStack.pop();
+console.log("myStack", myStack);
