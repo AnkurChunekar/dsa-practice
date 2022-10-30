@@ -75,4 +75,14 @@ class BST {
     }
     return false;
   }
+
+  minValueNode(currentNode = this.root) {
+    if (!currentNode) return;
+
+    let temp = currentNode;
+    while (temp.left !== null) {
+      temp = temp.left;
+    }
+    return temp.value;
+  }
 }
