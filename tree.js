@@ -25,4 +25,38 @@ class BST {
   constructor() {
     this.root = null;
   }
+
+  insert(value) {
+    // create a new node
+    const newNode = new Node(value);
+
+    // if tree is empty add the node to the root
+    if (!this.root) {
+      this.root = newNode;
+      return this;
+    }
+
+    let temp = this.root;
+
+    while (temp) {
+      if (temp.value > value) {
+        // go left
+        if (!temp.left) {
+          temp.left = newNode;
+          return this;
+        }
+        temp = temp.left;
+      } else if (temp.value < value) {
+        // go right
+        if (!temp.right) {
+          temp.right = newNode;
+          return this;
+        }
+        temp = temp.right;
+      } else {
+        // if equal then return undef
+        return;
+      }
+    }
+  }
 }
