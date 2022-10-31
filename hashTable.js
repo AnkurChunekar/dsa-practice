@@ -12,4 +12,14 @@ class HashTable {
     }
     return hash;
   }
+
+  //  Concept of Separate chaining will be used to save data with same hash
+  set(key, value) {
+    const index = this._hash(key);
+
+    if (!this.dataMap[index]) this.dataMap[index] = [];
+
+    this.dataMap[index].push([key, value]);
+    return this;
+  }
 }
