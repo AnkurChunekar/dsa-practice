@@ -22,4 +22,15 @@ class HashTable {
     this.dataMap[index].push([key, value]);
     return this;
   }
+
+  get(key) {
+    const index = this._hash(key);
+    if (this.dataMap[index]) {
+      for (let item of this.dataMap[index]) {
+        if (key === item[0]) return item[1];
+      }
+    }
+
+    return undefined;
+  }
 }
