@@ -33,4 +33,16 @@ class HashTable {
 
     return undefined;
   }
+
+  keys() {
+    const result = [];
+
+    for (let item of this.dataMap) {
+      if (item) {
+        for (let el of item) result.push(el[0]);
+      }
+    }
+
+    return result;
+  }
 }
