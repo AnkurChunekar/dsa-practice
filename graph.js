@@ -44,4 +44,31 @@ class Graph {
     }
     return false;
   }
+
+  removeVertex(vertex) {
+    if (this.adjecencyList[vertex]) {
+      for (let item of this.adjecencyList[vertex]) {
+        this.adjecencyList[item] = this.adjecencyList[item].filter(
+          (el) => el !== vertex
+        );
+      }
+      delete this.adjecencyList[vertex];
+      return this;
+    }
+    return false;
+  }
 }
+
+const myGraph = new Graph();
+myGraph.addVertex("A");
+myGraph.addVertex("B");
+myGraph.addVertex("C");
+myGraph.addVertex("D");
+
+myGraph.addEdge("A", "B");
+myGraph.addEdge("A", "C");
+myGraph.addEdge("A", "D");
+myGraph.addEdge("B", "D");
+myGraph.addEdge("C", "D");
+
+console.log(myGraph);
