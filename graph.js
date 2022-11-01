@@ -14,4 +14,12 @@ class Graph {
   constructor() {
     this.adjecencyList = {};
   }
+
+  addVertex(vertex) {
+    if (!this.adjecencyList[vertex]) {
+      this.adjecencyList[vertex] = [];
+      return true;
+    }
+    return false;
+  }
 }
