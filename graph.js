@@ -22,4 +22,13 @@ class Graph {
     }
     return false;
   }
+
+  addEdge(vertex1, vertex2) {
+    if (this.adjecencyList[vertex1] && this.adjecencyList[vertex2]) {
+      this.adjecencyList[vertex1].push(vertex2);
+      this.adjecencyList[vertex2].push(vertex1);
+      return true;
+    }
+    return false;
+  }
 }
