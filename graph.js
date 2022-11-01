@@ -31,4 +31,17 @@ class Graph {
     }
     return false;
   }
+
+  removeEdge(vertex1, vertex2) {
+    if (this.adjecencyList[vertex1] && this.adjecencyList[vertex2]) {
+      this.adjecencyList[vertex1] = this.adjecencyList[vertex1].filter(
+        (el) => el !== vertex2
+      );
+      this.adjecencyList[vertex2] = this.adjecencyList[vertex2].filter(
+        (el) => el !== vertex1
+      );
+      return true;
+    }
+    return false;
+  }
 }
