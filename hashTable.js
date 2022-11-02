@@ -46,3 +46,18 @@ class HashTable {
     return result;
   }
 }
+
+/* 
+Write a function to find if two arrays have something in common
+*/
+// O(n)
+const isCommonItemPresent = (arr1, arr2) => {
+  const temp = {};
+  for (let item of arr1) temp[item] = true;
+  for (let item of arr2) if (temp[item]) return true;
+
+  return false;
+};
+
+console.log(isCommonItemPresent([1,2,3], [4,5,6]));
+console.log(isCommonItemPresent([1,2,3], [4,5,3]));
