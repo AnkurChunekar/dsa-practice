@@ -6,3 +6,6 @@
 */
 
 const factorial = (n) => (n === 1 ? 1 : n * sumRange(n - 1));
+const sumRange = (n) => (n === 1 ? 1 : n + sumRange(n - 1));
+const power = (base, exponent) =>
+  exponent === 0 ? 1 : base * power(base, exponent - 1);
