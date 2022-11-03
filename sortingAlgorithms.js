@@ -114,3 +114,19 @@ const mergeSortedArrays = (arr1, arr2) => {
 
   return mergedArr;
 };
+
+/*  
+Merge sort steps
+ 1. Break arrays in half till array.length = 1
+ 2. Use mergeSortedArrays fn to merge into one big arr.
+*/
+
+const mergeSort = (array) => {
+  if (array.length === 1) return array;
+
+  const mid = Math.floor(array.length / 2);
+  const left = array.slice(0, mid);
+  const right = array.slice(mid);
+
+  return mergeSortedArrays(mergeSort(left), mergeSort(right));
+};
