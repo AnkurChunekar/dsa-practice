@@ -152,3 +152,14 @@ const pivot = (array, pivotIndex = 0, endIndex = array.length - 1) => {
   swap(array, pivotIndex, swapIndex);
   return swapIndex;
 };
+
+const quickSort = (array, left = 0, right = array.length - 1) => {
+  if (left < right) {
+    let pivotIndex = pivot(array, left, right);
+    quickSort(array, 0, pivotIndex - 1);
+    quickSort(array, pivotIndex + 1, right);
+  }
+  return array;
+};
+
+console.log(quickSort([4, 6, 1, 7, 3, 2, 5]));
