@@ -130,3 +130,25 @@ const mergeSort = (array) => {
 
   return mergeSortedArrays(mergeSort(left), mergeSort(right));
 };
+
+// Quick sort
+
+const swap = (array, firstIndex, secondIndex) => {
+  const temp = array[firstIndex];
+  array[firstIndex] = array[secondIndex];
+  array[secondIndex] = temp;
+};
+
+const pivot = (array, pivotIndex = 0, endIndex = array.length - 1) => {
+  let swapIndex = pivotIndex;
+
+  for (let i = pivotIndex + 1; i <= endIndex; i++) {
+    if (array[i] < array[pivotIndex]) {
+      swapIndex++;
+      swap(array, swapIndex, i);
+    }
+  }
+
+  swap(array, pivotIndex, swapIndex);
+  return swapIndex;
+};
