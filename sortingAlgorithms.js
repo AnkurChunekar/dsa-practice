@@ -60,3 +60,31 @@ const insertionSort = (arr) => {
 
   return arr;
 };
+
+// Merge Sort
+
+const mergeSortedArrays = (arr1, arr2) => {
+  const mergedArr = [];
+  let i = 0;
+  let j = 0;
+
+  while (true) {
+    if (i < arr1.length && j < arr2.length) {
+      if (arr1[i] < arr2[j]) {
+        mergedArr.push(arr1[i]);
+        i++;
+      } else if (arr1[i] > arr2[j]) {
+        mergedArr.push(arr2[j]);
+        j++;
+      }
+    } else if (i < arr1.length) {
+      mergedArr.push(arr1[i]);
+      i++;
+    } else if (j < arr2.length) {
+      mergedArr.push(arr2[j]);
+      j++;
+    } else {
+      return mergedArr;
+    }
+  }
+};
